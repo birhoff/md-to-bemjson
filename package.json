@@ -1,0 +1,37 @@
+{
+  "name": "md-2-bemjson",
+  "version": "0.0.1",
+  "description": "nd 2 bemjson converter",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run lint",
+    "test": "npm run specs",
+    "specs": "mocha test/**",
+    "cover": "nyc mocha test/**",
+    "lint": "eslint ."
+  },
+  "engines": {
+    "node": ">= 4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/birhoff/md-2-bemjson.git"
+  },
+  "keywords": [
+    "bemjson",
+    "md"
+  ],
+  "author": "Konstantin Gladkikh <birhoff@gmail.com>",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/birhoff/md-2-bemjson/issues"
+  },
+  "homepage": "https://github.com/birhoff/md-2-bemjson#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^3.15.0",
+    "eslint-config-pedant": "^0.8.0",
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2"
+  }
+}
