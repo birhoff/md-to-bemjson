@@ -1,4 +1,6 @@
 # md-2-bemjson
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/birhoff/md-2-bemjson.svg)](https://greenkeeper.io/)
 Converts .md files to bemjson
 
 [![NPM Status][npm-img]][npm]
