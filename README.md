@@ -1,10 +1,11 @@
 # md-2-bemjson
+
 Converts .md files to bemjson
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
 [![Coverage Status][coverage-img]][coveralls]
-[![Dependency Status][dependency-img]][david]
+[![Greenkeeper badge](https://badges.greenkeeper.io/birhoff/md-2-bemjson.svg)](https://greenkeeper.io/)
 
 [npm]:            https://www.npmjs.org/package/md-2-bemjson
 [npm-img]:        https://img.shields.io/npm/v/md-2-bemjson.svg
