@@ -1,14 +1,16 @@
 {
   "name": "md-2-bemjson",
   "version": "0.0.1",
-  "description": "nd 2 bemjson converter",
+  "description": "md 2 bemjson converter",
   "main": "index.js",
   "scripts": {
     "pretest": "npm run lint",
     "test": "npm run specs",
     "specs": "mocha test/**",
     "cover": "nyc mocha test/**",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "release": "standard-version; git push --follow-tags origin master",
+    "github-release": "conventional-github-releaser -p angular -r 0"
   },
   "engines": {
     "node": ">= 4.0"
@@ -30,8 +32,15 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^3.15.0",
-    "eslint-config-pedant": "^0.8.0",
+    "eslint-config-birhoff": "0.0.1",
     "mocha": "^3.2.0",
+    "node-eval": "^1.1.0",
     "nyc": "^10.1.2"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "remark": "^7.0.0",
+    "remark-bemjson": "0.0.2",
+    "remark-lint": "^6.0.0"
   }
 }
