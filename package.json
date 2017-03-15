@@ -21,7 +21,8 @@
   },
   "keywords": [
     "bemjson",
-    "md"
+    "md",
+    "converter"
   ],
   "author": "Konstantin Gladkikh <birhoff@gmail.com>",
   "license": "MPL-2.0",
