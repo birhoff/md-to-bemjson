@@ -58,7 +58,7 @@ Yields:
 
 ##### `options`
 
-All options are passed to [`remark-bemjson`](https://github.com/birhoff/remark-bemjson).
+* *Boolean* **github** — Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
 
 License
 -------
