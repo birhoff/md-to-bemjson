@@ -53,15 +53,18 @@ describe('API', () => {
 
     describe('methods', () => {
         it('should `.convert` async', () => {
-            const bjsonPromise = (new Converter()).convert('#hello world');
+            const bjsonPromise = (new Converter()).convert('# Hello world');
 
             expect(bjsonPromise.then).to.be.a('function');
 
             return expect(bjsonPromise).to.eventually.deep.equal({
                 block: 'documentation',
                 content: {
-                    block: 'paragraph',
-                    content: '#hello world'
+                    block: 'heading',
+                    content: 'Hello world',
+                    mods: {
+                        level: 1
+                    }
                 }
             });
         });

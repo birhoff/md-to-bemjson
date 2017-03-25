@@ -46,19 +46,276 @@ Yields:
 {
     "block": "documentation",
     "content": {
-        "block": "paragraph",
-        "content": "#hello world"
+        "block": "heading",
+        "content": "Hello world",
+        "mods": {
+            "level": 1
+        }
     }
 }
 ```
 
-## API
+Markdown converter to bemjson
+-----------------------------
 
-### `toBemjson.convertSync(md[, options])`
+Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert markdown to bemjson.
+Plugins divided into two groups: necessary(you can't disable this plugins) and optional.
 
-##### `options`
+### Necessary plugins:
+* [remark-lint](https://github.com/wooorm/remark-lint) - Because could not create [MDAST](https://github.com/syntax-tree/mdast) tree from not valid markdown. 
+* [remark-inline-links](https://github.com/wooorm/remark-inline-links) - Bemjson don't support references.
 
-* *Boolean* **github** — Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+### Optional plugins:
+* [remark-github](https://github.com/wooorm/remark-github) - Github integrations (issues, commits, mentions)
+
+### Compiler
+* [remark-bemjson](https://github.com/birhoff/remark-bemjson) - custom bemjson compiler
+
+
+API
+---
+
+* [constructor(\[options\])](#constructoroptions)
+* [convert(markdown)](#convertmarkdown--promise)
+* [convertSync(markdown)](#convertsyncmarkdown--bemjson)
+* [stringify(markdown)](#stringifymarkdown--promise)
+* [stringifySync(markdown)](#stringifysyncmarkdown--string)
+* [_static_ convert(markdown\[, options\])](#static-convertmarkdown--options--promise)
+* [_static_ convertSync(markdown\[, options\])](#static-convertsyncmarkdown--options--bemjson)
+* [_static_ stringify(markdown\[, options\])](#static-stringifymarkdown--options--promise)
+* [_static_ stringifySync(markdown\[, options\])](#static-stringifysyncmarkdown--options--string)
+
+### constructor(\[options\])
+
+#### Options
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`github`  | `boolean` | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+ 
+
+### convert(markdown) => Promise<Bemjson>
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+
+Asynchronously converts markdown to bemjson.
+
+```js
+const Converter = require('md-2-bemjson');
+const toBemjson = new Converter();
+ 
+toBemjson.convert('# Hello world').then(bemjson => console.log(JSON.parse(bemjson)))
+```
+Yields:
+```json
+{
+    "block": "documentation",
+    "content": {
+        "block": "heading",
+        "content": "Hello world",
+        "mods": {
+            "level": 1
+        }
+    }
+}
+```
+
+### convertSync(markdown) => Bemjson
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+
+Synchronously converts markdown to bemjson.
+
+```js
+const Converter = require('md-2-bemjson');
+const toBemjson = new Converter();
+ 
+console.log(JSON.parse(toBemjson.convertSync('# Hello world'))); 
+```
+Yields:
+```json
+{
+    "block": "documentation",
+    "content": {
+        "block": "heading",
+        "content": "Hello world",
+        "mods": {
+            "level": 1
+        }
+    }
+}
+```
+
+### stringify(markdown) => Promise<String>
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+
+Asynchronously converts and stringify markdown to bemjson module with exports.
+
+```js
+const Converter = require('md-2-bemjson');
+const toBemjson = new Converter();
+ 
+toBemjson.stringify('# Hello world').then(content => console.log(content))
+```
+Yields:
+```js
+module.exports = {
+    block: 'documentation',
+    content: {
+        block: 'heading',
+        content: 'Hello world',
+        mods: {
+            'level': 1
+        }
+    }
+};
+```
+
+### stringifySync(markdown) => String
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+
+Synchronously converts and stringify markdown to bemjson module with exports.
+
+```js
+const Converter = require('md-2-bemjson');
+const toBemjson = new Converter();
+ 
+console.log(toBemjson.stringifySync('# Hello world'));
+ ```
+Yields:
+```js
+module.exports = {
+    block: 'documentation',
+    content: {
+        block: 'heading',
+        content: 'Hello world',
+        mods: {
+            'level': 1
+        }
+    }
+};
+```
+
+### _static_ convert(markdown \[, options\]) => Promise<Bemjson>
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+`options` | `object`  | [plugin options](#options)
+
+Asynchronously converts markdown to bemjson.
+
+```js
+const toBemjson = require('md-2-bemjson');
+ 
+toBemjson.convert('# Hello world').then(bemjson => console.log(JSON.parse(bemjson)))
+```
+Yields:
+ ```json
+{
+    "block": "documentation",
+    "content": {
+        "block": "heading",
+        "content": "Hello world",
+        "mods": {
+            "level": 1
+        }
+    }
+}
+```
+
+### _static_ convertSync(markdown \[, options\]) => Bemjson
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+`options` | `object`  | [plugin options](#options)
+
+Synchronously converts markdown to bemjson.
+
+```js
+const toBemjson = require('md-2-bemjson');
+ 
+console.log(JSON.parse(toBemjson.convertSync('# Hello world')));
+```
+Yields:
+```json
+{
+    "block": "documentation",
+    "content": {
+        "block": "heading",
+        "content": "Hello world",
+        "mods": {
+            "level": 1
+        }
+    }
+}
+```
+
+### _static_ stringify(markdown \[, options\]) => Promise<String>
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+`options` | `object`  | [plugin options](#options)
+
+Asynchronously converts and stringify markdown to bemjson module with exports.
+
+```js
+const toBemjson = require('md-2-bemjson');
+
+toBemjson.stringify('# Hello world').then(bemjson => console.log(JSON.parse(bemjson)));
+```
+Yields:
+```js
+module.exports = {
+    block: 'documentation',
+    content: {
+        block: 'heading',
+        content: 'Hello world',
+        mods: {
+            'level': 1
+        }
+    }
+};
+```
+
+### _static_ stringifySync(markdown \[, options\]) => String
+ 
+Parameter | Type      | Description
+----------|-----------|------------------------------
+`markdown`| `string`  | Markdown text
+`options` | `object`  | [plugin options](#options)
+
+Synchronously converts and stringify markdown to bemjson module with exports.
+
+```js
+const toBemjson = require('md-2-bemjson');
+
+console.log(JSON.parse(toBemjson.stringifySync('# Hello world')));
+```
+Yields:
+```js
+module.exports = {
+    block: 'documentation',
+    content: {
+        block: 'heading',
+        content: 'Hello world',
+        mods: {
+            'level': 1
+        }
+    }
+};
+```
 
 License
 -------
