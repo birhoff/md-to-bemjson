@@ -36,5 +36,15 @@ module.exports = {
                 content: '{\n  block: &#39;widgets&#39;,\n  content: [\n    {\n      elem: &#39;weather&#39;,\n      content: 4\n    }\n  ]\n}\n'
             },
             mods: { lang: 'js' }
+        }, {
+            block: 'paragraph',
+            content: {
+                block: 'link',
+                content: {
+                    block: 'strong',
+                    content: '@birhoff'
+                },
+                href: 'https://github.com/birhoff'
+            }
         }]
 };
