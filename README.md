@@ -35,48 +35,30 @@ $ npm install md-2-bemjson
 ## Usage
 
 ```js
-const unified = require('unified');
-const markdown = require('remark-parse');
 const toBemjson = require('md-2-bemjson');
+const bemjson = toBemjson.convertSync('# Hello world');
 
-const mdast = unified().use(markdown).parse('# Hello im _heading_');
-const bjson = toBemjson(mdast);
+console.log(JSON.parse(bemjson));
+```
 
-console.log(JSON.stringify(bjson));
-
-// {
-//   "block": "documentation",
-//   "content": {
-//     "block": "heading",
-//     "mods": {
-//       "level": 1
-//     },
-//     "content": [
-//       "Hello im ",
-//       {
-//         "block": "emphasis",
-//         "content": "heading"
-//       }
-//     ]
-//   }
-// }
+Yields: 
+```json
+{
+    "block": "documentation",
+    "content": {
+        "block": "paragraph",
+        "content": "#hello world"
+    }
+}
 ```
 
 ## API
 
-You can specify options with second arg.
-```javascript
-const toBemjson = require('md-2-bemjson');
+### `toBemjson.convertSync(md[, options])`
 
-toBemjson({/* ...tree */}, {/* options */});
-```
+##### `options`
 
-### Plugin options
-
-* *String|Object* **root** — Define block wrapper. Default — `documentation`.
-* *Boolean* **scope** — Define how to render nodes as blocks or elements. If `true` render as elements of `root` block. Default — `false`.
-* *Boolean* **tag** — Define render html tags to block. Default — `false`.
-
+All options are passed to [`remark-bemjson`](https://github.com/birhoff/remark-bemjson).
 
 License
 -------
