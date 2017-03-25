@@ -4,12 +4,28 @@ const fs = require('fs');
 
 const expect = require('chai').expect;
 
-const toBemjson = require('../index');
+const Converter = require('../index');
 const md = fs.readFileSync(__dirname + '/test-assets/test.md');
 
 describe('test', () => {
     it('should convert md to bemjson', () => {
-        const bjson = toBemjson.convertSync(md);
+        const bjson = Converter.convertSync(md);
         expect(bjson).to.deep.equal(require('./test-assets/test.bemjson'));
+    });
+
+    it('should success with usage example', () => {
+        const toBemjson = require('../index').convertSync;
+        const bemjson = toBemjson('# Hello world');
+
+        expect(bemjson).to.deep.equal({
+            block: 'documentation',
+            content: {
+                block: 'heading',
+                content: 'Hello world',
+                mods: {
+                    level: 1
+                }
+            }
+        });
     });
 });

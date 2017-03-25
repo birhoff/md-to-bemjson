@@ -35,12 +35,11 @@ $ npm install md-2-bemjson
 ## Usage
 
 ```js
-const toBemjson = require('md-2-bemjson');
-const bemjson = toBemjson.convertSync('# Hello world');
+const toBemjson = require('md-2-bemjson').convertSync;
+const bjson = toBemjson('# Hello world');
 
-console.log(JSON.parse(bemjson));
+console.log(JSON.stringify(bjson, null, 4));
 ```
-
 Yields: 
 ```json
 {
@@ -62,7 +61,7 @@ Module use [remark](https://github.com/wooorm/remark) with several plugins and c
 Plugins divided into two groups: necessary(you can't disable this plugins) and optional.
 
 ### Necessary plugins: 
-* [remark-inline-links](https://github.com/wooorm/remark-inline-links) - Bemjson don't support references.
+* [remark-inline-links](https://github.com/wooorm/remark-inline-links) - [bemjson][bemjson] don't support references.
 
 ### Optional plugins:
 * [remark-github](https://github.com/wooorm/remark-github) - Github integrations (issues, commits, mentions)
@@ -102,9 +101,9 @@ Asynchronously converts markdown to [bemjson][bemjson].
 
 ```js
 const Converter = require('md-2-bemjson');
-const toBemjson = new Converter();
+const md2Bemjson = new Converter();
  
-toBemjson.convert('# Hello world').then(bemjson => console.log(JSON.parse(bemjson)))
+md2Bemjson.convert('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)))
 ```
 Yields:
 ```json
@@ -130,9 +129,9 @@ Synchronously converts markdown to [bemjson][bemjson].
 
 ```js
 const Converter = require('md-2-bemjson');
-const toBemjson = new Converter();
+const md2Bemjson = new Converter();
  
-console.log(JSON.parse(toBemjson.convertSync('# Hello world'))); 
+console.log(JSON.stringify(md2Bemjson.convertSync('# Hello world'), null, 4)); 
 ```
 Yields:
 ```json
@@ -158,9 +157,9 @@ Asynchronously converts and stringify markdown to [bemjson][bemjson] module with
 
 ```js
 const Converter = require('md-2-bemjson');
-const toBemjson = new Converter();
+const md2Bemjson = new Converter();
  
-toBemjson.stringify('# Hello world').then(content => console.log(content))
+md2Bemjson.stringify('# Hello world').then(content => console.log(content))
 ```
 Yields:
 ```js
@@ -186,9 +185,9 @@ Synchronously converts and stringify markdown to [bemjson][bemjson] module with 
 
 ```js
 const Converter = require('md-2-bemjson');
-const toBemjson = new Converter();
+const md2Bemjson = new Converter();
  
-console.log(toBemjson.stringifySync('# Hello world'));
+console.log(md2Bemjson.stringifySync('# Hello world'));
  ```
 Yields:
 ```js
@@ -214,9 +213,9 @@ Parameter | Type      | Description
 Asynchronously converts markdown to [bemjson][bemjson].
 
 ```js
-const toBemjson = require('md-2-bemjson');
+const toBemjson = require('md-2-bemjson').convert;
  
-toBemjson.convert('# Hello world').then(bemjson => console.log(JSON.parse(bemjson)))
+toBemjson('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)))
 ```
 Yields:
  ```json
@@ -242,9 +241,9 @@ Parameter | Type      | Description
 Synchronously converts markdown to [bemjson][bemjson].
 
 ```js
-const toBemjson = require('md-2-bemjson');
+const toBemjson = require('md-2-bemjson').convertSync;
  
-console.log(JSON.parse(toBemjson.convertSync('# Hello world')));
+console.log(JSON.stringify(toBemjson('# Hello world'), null, 4));
 ```
 Yields:
 ```json
@@ -270,9 +269,9 @@ Parameter | Type      | Description
 Asynchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
-const toBemjson = require('md-2-bemjson');
+const toBemjsonString = require('md-2-bemjson').stringify;
 
-toBemjson.stringify('# Hello world').then(bemjson => console.log(JSON.parse(bemjson)));
+toBemjsonString('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)));
 ```
 Yields:
 ```js
@@ -298,9 +297,9 @@ Parameter | Type      | Description
 Synchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
-const toBemjson = require('md-2-bemjson');
+const toBemjsonString = require('md-2-bemjson').stringifySync;
 
-console.log(JSON.parse(toBemjson.stringifySync('# Hello world')));
+console.log(toBemjsonString('# Hello world'));
 ```
 Yields:
 ```js
