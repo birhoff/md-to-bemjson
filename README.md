@@ -61,8 +61,7 @@ Markdown converter to [bemjson][bemjson]
 Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert markdown to bemjson.
 Plugins divided into two groups: necessary(you can't disable this plugins) and optional.
 
-### Necessary plugins:
-* [remark-lint](https://github.com/wooorm/remark-lint) - Because could not create [MDAST](https://github.com/syntax-tree/mdast) tree from not valid markdown. 
+### Necessary plugins: 
 * [remark-inline-links](https://github.com/wooorm/remark-inline-links) - Bemjson don't support references.
 
 ### Optional plugins:
