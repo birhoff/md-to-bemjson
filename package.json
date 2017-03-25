@@ -1,6 +1,6 @@
 {
   "name": "md-2-bemjson",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "md 2 bemjson converter",
   "main": "index.js",
   "scripts": {
