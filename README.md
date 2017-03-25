@@ -1,5 +1,5 @@
 # md-2-bemjson
-Converts `.md` files to `.bemjson.js` files.
+Converts `markdown` text to [`bemjson`][bemjson].
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
@@ -55,7 +55,7 @@ Yields:
 }
 ```
 
-Markdown converter to bemjson
+Markdown converter to [bemjson][bemjson]
 -----------------------------
 
 Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert markdown to bemjson.
@@ -69,7 +69,7 @@ Plugins divided into two groups: necessary(you can't disable this plugins) and o
 * [remark-github](https://github.com/wooorm/remark-github) - Github integrations (issues, commits, mentions)
 
 ### Compiler
-* [remark-bemjson](https://github.com/birhoff/remark-bemjson) - custom bemjson compiler
+* [remark-bemjson](https://github.com/birhoff/remark-bemjson) - custom [bemjson][bemjson] compiler
 
 
 API
@@ -99,7 +99,7 @@ Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| `string`  | Markdown text
 
-Asynchronously converts markdown to bemjson.
+Asynchronously converts markdown to [bemjson][bemjson].
 
 ```js
 const Converter = require('md-2-bemjson');
@@ -127,7 +127,7 @@ Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| `string`  | Markdown text
 
-Synchronously converts markdown to bemjson.
+Synchronously converts markdown to [bemjson][bemjson].
 
 ```js
 const Converter = require('md-2-bemjson');
@@ -155,7 +155,7 @@ Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| `string`  | Markdown text
 
-Asynchronously converts and stringify markdown to bemjson module with exports.
+Asynchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
 const Converter = require('md-2-bemjson');
@@ -183,7 +183,7 @@ Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| `string`  | Markdown text
 
-Synchronously converts and stringify markdown to bemjson module with exports.
+Synchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
 const Converter = require('md-2-bemjson');
@@ -212,7 +212,7 @@ Parameter | Type      | Description
 `markdown`| `string`  | Markdown text
 `options` | `object`  | [plugin options](#options)
 
-Asynchronously converts markdown to bemjson.
+Asynchronously converts markdown to [bemjson][bemjson].
 
 ```js
 const toBemjson = require('md-2-bemjson');
@@ -240,7 +240,7 @@ Parameter | Type      | Description
 `markdown`| `string`  | Markdown text
 `options` | `object`  | [plugin options](#options)
 
-Synchronously converts markdown to bemjson.
+Synchronously converts markdown to [bemjson][bemjson].
 
 ```js
 const toBemjson = require('md-2-bemjson');
@@ -268,7 +268,7 @@ Parameter | Type      | Description
 `markdown`| `string`  | Markdown text
 `options` | `object`  | [plugin options](#options)
 
-Asynchronously converts and stringify markdown to bemjson module with exports.
+Asynchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
 const toBemjson = require('md-2-bemjson');
@@ -296,7 +296,7 @@ Parameter | Type      | Description
 `markdown`| `string`  | Markdown text
 `options` | `object`  | [plugin options](#options)
 
-Synchronously converts and stringify markdown to bemjson module with exports.
+Synchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
 const toBemjson = require('md-2-bemjson');
@@ -321,3 +321,6 @@ License
 -------
 
 Code and documentation copyright 2017 YANDEX LLC. Code released under the [Mozilla Public License 2.0](LICENSE.txt).
+
+
+[bemjson]: https://en.bem.info/platform/bemjson/
