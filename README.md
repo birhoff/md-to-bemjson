@@ -67,7 +67,7 @@ Plugins divided into two groups: necessary(you can't disable this plugins) and o
 * [remark-github](https://github.com/wooorm/remark-github) - Github integrations (issues, commits, mentions)
 
 ### Compiler
-* [remark-bemjson](https://github.com/birhoff/remark-bemjson) - custom [bemjson][bemjson] compiler
+* [remark-bemjson][remark-bemjson] - custom [bemjson][bemjson] compiler
 
 
 API
@@ -86,9 +86,11 @@ API
 ### constructor(\[options\])
 
 #### Options
-Parameter | Type      | Description
-----------|-----------|------------------------------
-`github`  | `boolean` | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+Parameter    | Type           | Description
+-------------|----------------|------------------------------
+`github`     | `boolean`      | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+`exportType` | `enum<String>` | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
+`exportName` | `String`       | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify bemjson with exported given name.
  
 
 ### convert(markdown) => Promise<Bemjson>
@@ -147,11 +149,12 @@ Yields:
 }
 ```
 
-### stringify(markdown) => Promise<String>
+### stringify(markdown \[, options\]) => Promise<String>
  
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| `string`  | Markdown text
+`options` | `object`  | Options prefixed with [`export*`](#options). *Important*: Creates new processor. For better performance set options via constructor.
 
 Asynchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
@@ -175,11 +178,12 @@ module.exports = {
 };
 ```
 
-### stringifySync(markdown) => String
+### stringifySync(markdown \[, options\]) => String
  
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| `string`  | Markdown text
+`options` | `object`  | Options prefixed with [`export*`](#options). *Important*: Creates new processor. For better performance set options via constructor.
 
 Synchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
@@ -322,3 +326,4 @@ Code and documentation copyright 2017 YANDEX LLC. Code released under the [Mozil
 
 
 [bemjson]: https://en.bem.info/platform/bemjson/
+[remark-bemjson]: https://github.com/birhoff/remark-bemjson
