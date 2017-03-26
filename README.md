@@ -1,4 +1,4 @@
-# md-2-bemjson
+# md-to-bemjson
 Converts `markdown` text to [`bemjson`][bemjson].
 
 [![NPM Status][npm-img]][npm]
@@ -7,20 +7,20 @@ Converts `markdown` text to [`bemjson`][bemjson].
 [![Dependency Status][dependency-img]][david]
 [![Greenkeeper badge][greenkeeper-img]][greenkeeper]
 
-[npm]:            https://www.npmjs.org/package/md-2-bemjson
-[npm-img]:        https://img.shields.io/npm/v/md-2-bemjson.svg
+[npm]:            https://www.npmjs.org/package/md-to-bemjson
+[npm-img]:        https://img.shields.io/npm/v/md-to-bemjson.svg
 
-[travis]:         https://travis-ci.org/birhoff/md-2-bemjson
-[test-img]:       https://img.shields.io/travis/birhoff/md-2-bemjson.svg?label=tests
+[travis]:         https://travis-ci.org/birhoff/md-to-bemjson
+[test-img]:       https://img.shields.io/travis/birhoff/md-to-bemjson.svg?label=tests
 
-[coveralls]:      https://coveralls.io/r/birhoff/md-2-bemjson
-[coverage-img]:   https://img.shields.io/coveralls/birhoff/md-2-bemjson.svg
+[coveralls]:      https://coveralls.io/r/birhoff/md-to-bemjson
+[coverage-img]:   https://img.shields.io/coveralls/birhoff/md-to-bemjson.svg
 
-[david]:          https://david-dm.org/birhoff/md-2-bemjson
-[dependency-img]: http://img.shields.io/david/birhoff/md-2-bemjson.svg
+[david]:          https://david-dm.org/birhoff/md-to-bemjson
+[dependency-img]: http://img.shields.io/david/birhoff/md-to-bemjson.svg
 
 [greenkeeper]:    https://greenkeeper.io/
-[greenkeeper-img]:https://badges.greenkeeper.io/birhoff/md-2-bemjson.svg
+[greenkeeper-img]:https://badges.greenkeeper.io/birhoff/md-to-bemjson.svg
 
 ## Requirements
 
@@ -29,13 +29,13 @@ Converts `markdown` text to [`bemjson`][bemjson].
 ## Install
 
 ```sh
-$ npm install md-2-bemjson
+$ npm install md-to-bemjson
 ```
 
 ## Usage
 
 ```js
-const toBemjson = require('md-2-bemjson').convertSync;
+const toBemjson = require('md-to-bemjson').convertSync;
 const bjson = toBemjson('# Hello world');
 
 console.log(JSON.stringify(bjson, null, 4));
@@ -102,7 +102,7 @@ Parameter | Type      | Description
 Asynchronously converts markdown to [bemjson][bemjson].
 
 ```js
-const Converter = require('md-2-bemjson');
+const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
  
 md2Bemjson.convert('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)))
@@ -130,7 +130,7 @@ Parameter | Type      | Description
 Synchronously converts markdown to [bemjson][bemjson].
 
 ```js
-const Converter = require('md-2-bemjson');
+const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
  
 console.log(JSON.stringify(md2Bemjson.convertSync('# Hello world'), null, 4)); 
@@ -159,7 +159,7 @@ Parameter | Type      | Description
 Asynchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
-const Converter = require('md-2-bemjson');
+const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
  
 md2Bemjson.stringify('# Hello world').then(content => console.log(content))
@@ -188,7 +188,7 @@ Parameter | Type      | Description
 Synchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
-const Converter = require('md-2-bemjson');
+const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
  
 console.log(md2Bemjson.stringifySync('# Hello world'));
@@ -217,7 +217,7 @@ Parameter | Type      | Description
 Asynchronously converts markdown to [bemjson][bemjson].
 
 ```js
-const toBemjson = require('md-2-bemjson').convert;
+const toBemjson = require('md-to-bemjson').convert;
  
 toBemjson('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)))
 ```
@@ -245,7 +245,7 @@ Parameter | Type      | Description
 Synchronously converts markdown to [bemjson][bemjson].
 
 ```js
-const toBemjson = require('md-2-bemjson').convertSync;
+const toBemjson = require('md-to-bemjson').convertSync;
  
 console.log(JSON.stringify(toBemjson('# Hello world'), null, 4));
 ```
@@ -273,7 +273,7 @@ Parameter | Type      | Description
 Asynchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
-const toBemjsonString = require('md-2-bemjson').stringify;
+const toBemjsonString = require('md-to-bemjson').stringify;
 
 toBemjsonString('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)));
 ```
@@ -301,7 +301,7 @@ Parameter | Type      | Description
 Synchronously converts and stringify markdown to [bemjson][bemjson] module with exports.
 
 ```js
-const toBemjsonString = require('md-2-bemjson').stringifySync;
+const toBemjsonString = require('md-to-bemjson').stringifySync;
 
 console.log(toBemjsonString('# Hello world'));
 ```
