@@ -1,5 +1,5 @@
 module.exports = {
-    block: 'documentation',
+    block: 'md-root',
     content: [
         {
             block: 'paragraph',
@@ -34,21 +34,21 @@ module.exports = {
                     alt: 'foo',
                     block: 'image',
                     title: 'Example Domain',
-                    url: 'http://example.com'
+                    src: 'http://example.com'
                 },
                 ', ',
                 {
                     alt: 'foo',
                     block: 'image',
                     title: 'Example Domain',
-                    url: 'http://example.com'
+                    src: 'http://example.com'
                 },
                 ', ',
                 {
                     alt: 'bar',
                     block: 'image',
                     title: 'Example Domain',
-                    url: 'http://example.com'
+                    src: 'http://example.com'
                 },
                 '.'
             ]

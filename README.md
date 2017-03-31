@@ -1,5 +1,5 @@
 # md-to-bemjson
-Converts `markdown` text to [`bemjson`][bemjson].
+Converts `markdown` text to [bemjson][bemjson].
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
@@ -43,10 +43,11 @@ console.log(JSON.stringify(bjson, null, 4));
 Yields: 
 ```json
 {
-    "block": "documentation",
+    "block": "md-root",
     "content": {
         "block": "heading",
         "content": "Hello world",
+        "level": 1,
         "mods": {
             "level": 1
         }
@@ -110,10 +111,11 @@ md2Bemjson.convert('# Hello world').then(bjson => console.log(JSON.stringify(bjs
 Yields:
 ```json
 {
-    "block": "documentation",
+    "block": "md-root",
     "content": {
         "block": "heading",
         "content": "Hello world",
+        "level": 1,
         "mods": {
             "level": 1
         }
@@ -138,10 +140,11 @@ console.log(JSON.stringify(md2Bemjson.convertSync('# Hello world'), null, 4));
 Yields:
 ```json
 {
-    "block": "documentation",
+    "block": "md-root",
     "content": {
         "block": "heading",
         "content": "Hello world",
+        "level": 1,
         "mods": {
             "level": 1
         }
@@ -167,10 +170,11 @@ md2Bemjson.stringify('# Hello world').then(content => console.log(content))
 Yields:
 ```js
 module.exports = {
-    block: 'documentation',
+    block: 'md-root',
     content: {
         block: 'heading',
         content: 'Hello world',
+        "level": 1,
         mods: {
             'level': 1
         }
@@ -196,10 +200,11 @@ console.log(md2Bemjson.stringifySync('# Hello world'));
 Yields:
 ```js
 module.exports = {
-    block: 'documentation',
+    block: 'md-root',
     content: {
         block: 'heading',
         content: 'Hello world',
+        level: 1,
         mods: {
             'level': 1
         }
@@ -224,10 +229,11 @@ toBemjson('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null,
 Yields:
  ```json
 {
-    "block": "documentation",
+    "block": "md-root",
     "content": {
         "block": "heading",
         "content": "Hello world",
+        "level": 1,
         "mods": {
             "level": 1
         }
@@ -252,10 +258,11 @@ console.log(JSON.stringify(toBemjson('# Hello world'), null, 4));
 Yields:
 ```json
 {
-    "block": "documentation",
+    "block": "md-root",
     "content": {
         "block": "heading",
         "content": "Hello world",
+        "level": 1,
         "mods": {
             "level": 1
         }
@@ -280,12 +287,13 @@ toBemjsonString('# Hello world').then(bjson => console.log(JSON.stringify(bjson,
 Yields:
 ```js
 module.exports = {
-    block: 'documentation',
+    block: 'md-root',
     content: {
         block: 'heading',
         content: 'Hello world',
+        level: 1,
         mods: {
-            'level': 1
+            level: 1
         }
     }
 };
@@ -308,10 +316,11 @@ console.log(toBemjsonString('# Hello world'));
 Yields:
 ```js
 module.exports = {
-    block: 'documentation',
+    block: 'md-root',
     content: {
         block: 'heading',
         content: 'Hello world',
+        level: 1,
         mods: {
             'level': 1
         }

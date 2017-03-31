@@ -6,33 +6,18 @@ const Converter = require('../index');
 describe('Options', () => {
     it('should add github support with `github=true`', () => {
         const bjson = Converter.convertSync('@birhoff', { github: true });
+        const link = bjson.content.content;
 
-        expect(bjson).to.deep.equal({
-            block: 'documentation',
-            content: {
-                block: 'paragraph',
-                content: {
-                    block: 'link',
-                    content: {
-                        block: 'strong',
-                        content: '@birhoff'
-                    },
-                    href: 'https://github.com/birhoff'
-                }
-            }
-        });
+        expect(link).to.have.property('block', 'link');
+        expect(link).to.have.property('content');
+        expect(link).to.have.property('href', 'https://github.com/birhoff');
     });
 
     it('should not add github support with `github=false`', () => {
         const bjson = Converter.convertSync('@birhoff', { github: false });
+        const content = bjson.content.content;
 
-        expect(bjson).to.deep.equal({
-            block: 'documentation',
-            content: {
-                block: 'paragraph',
-                content: '@birhoff'
-            }
-        });
+        expect(content).to.be.a('string');
     });
 
     it('should extract `exportType` option from constructor params', () => {
