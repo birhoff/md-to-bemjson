@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/birhoff/md-to-bemjson/compare/v0.3.0...v0.4.0) (2017-04-03)
+
+
+### Features
+
+* **options:** Add map option ([67347c5](https://github.com/birhoff/md-to-bemjson/commit/67347c5))
+* **options:** Add option prefix ([9e62e8e](https://github.com/birhoff/md-to-bemjson/commit/9e62e8e))
+* **options:** Add scope ([26c172f](https://github.com/birhoff/md-to-bemjson/commit/26c172f))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://github.com/birhoff/md-to-bemjson/compare/v0.2.0...v0.3.0) (2017-03-26)
 
