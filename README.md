@@ -87,11 +87,17 @@ API
 ### constructor(\[options\])
 
 #### Options
-Parameter    | Type           | Description
--------------|----------------|------------------------------
-`github`     | `boolean`      | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
-`exportType` | `enum<String>` | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
-`exportName` | `String`       | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify bemjson with exported given name.
+Parameter    | Type               | Description
+-------------|--------------------|------------------------------
+`github`     | `boolean`          | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+`exportType` | `enum<string>`     | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
+`exportName` | `string`           | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify bemjson with exported given name.
+`augment`    | `Function|Object`  | Options for augmentation resulting bemjson by every node. As function accepts bemNode and must return it.
+
+#### Options.augment
+Parameter    | Type               | Description
+-------------|--------------------|------------------------------
+`prefix`     | `string`           | Add prefix to all blocks. __Important:__ for root replace original prefix.
  
 
 ### convert(markdown) => Promise<Bemjson>
