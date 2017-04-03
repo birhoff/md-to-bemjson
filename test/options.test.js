@@ -47,4 +47,49 @@ describe('Options', () => {
 
         expect(bjsonString).to.startsWith('export default const hasName = ');
     });
+
+    describe('augment', () => {
+
+        it('should accept augment as params', () => {
+            const bjson = Converter.convertSync('# hello', { augment: {} });
+            const heading = bjson.content;
+
+            expect(heading).to.have.property('block', 'heading');
+        });
+
+        it('should accept augment as function', () => {
+            const testAugment = bemNode => {
+                bemNode.block = 'test-block';
+                return bemNode;
+            };
+            const bjson = Converter.convertSync('# hello', { augment: testAugment });
+            const heading = bjson.content;
+
+            expect(heading).to.have.property('block', 'test-block');
+        });
+
+        describe('prefix', () => {
+            it('should add prefix', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { prefix: 'my-' } });
+                const heading = bjson.content;
+
+                expect(heading).to.have.property('block', 'my-heading');
+            });
+
+            it('should not add prefix', () => {
+                const bjson = Converter.convertSync('# hello', { augment: {} });
+                const heading = bjson.content;
+
+                expect(heading).to.have.property('block', 'heading');
+            });
+
+            it('should replace prefix on `md-root`', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { prefix: 'my-' } });
+
+                expect(bjson).to.have.property('block', 'my-root');
+            });
+        });
+    });
 });
+
+// console.log(JSON.stringify(bjson, null, 4));

@@ -1,5 +1,5 @@
 # md-to-bemjson
-Converts `markdown` text to [bemjson][bemjson].
+Converts [markdown][markdown] text to [bemjson][bemjson].
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
@@ -55,17 +55,17 @@ Yields:
 }
 ```
 
-Markdown converter to [bemjson][bemjson]
+[Markdown][markdown] converter to [bemjson][bemjson]
 -----------------------------
 
-Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert markdown to bemjson.
-Plugins divided into two groups: necessary(you can't disable this plugins) and optional.
+Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert [markdown][markdown] to [bemjson][bemjson].
+Plugins divided into two groups: [necessary](#necessary-plugins)(you can't disable this plugins) and [optional](#optional-plugins).
 
 ### Necessary plugins: 
 * [remark-inline-links](https://github.com/wooorm/remark-inline-links) - [bemjson][bemjson] don't support references.
 
 ### Optional plugins:
-* [remark-github](https://github.com/wooorm/remark-github) - Github integrations (issues, commits, mentions)
+* [remark-github](https://github.com/wooorm/remark-github) - [Github](github.com) integrations (issues, commits, mentions)
 
 ### Compiler
 * [remark-bemjson][remark-bemjson] - custom [bemjson][bemjson] compiler
@@ -87,11 +87,17 @@ API
 ### constructor(\[options\])
 
 #### Options
-Parameter    | Type           | Description
--------------|----------------|------------------------------
-`github`     | `boolean`      | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
-`exportType` | `enum<String>` | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
-`exportName` | `String`       | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify bemjson with exported given name.
+Parameter    | Type               | Description
+-------------|--------------------|------------------------------
+`github`     | `boolean`          | Enables github support with remark plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+`exportType` | `enum<string>`     | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
+`exportName` | `string`           | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify bemjson with exported given name.
+`augment`    | `Function|Object`  | Options for augmentation resulting bemjson by every node. As function accepts bemNode and must return it.
+
+#### Options.augment
+Parameter    | Type               | Description
+-------------|--------------------|------------------------------
+`prefix`     | `string`           | Add prefix to all blocks. __Important:__ for root replace original prefix.
  
 
 ### convert(markdown) => Promise<Bemjson>
@@ -336,3 +342,4 @@ Code and documentation copyright 2017 YANDEX LLC. Code released under the [Mozil
 
 [bemjson]: https://en.bem.info/platform/bemjson/
 [remark-bemjson]: https://github.com/birhoff/remark-bemjson
+[markdown]: https://wikipedia.org/wiki/Markdown
