@@ -95,9 +95,12 @@ Parameter    | Type               | Description
 `augment`    | `Function|Object`  | Options for augmentation resulting bemjson by every node. As function accepts bemNode and must return it.
 
 #### Options.augment
-Parameter    | Type               | Description
--------------|--------------------|------------------------------
-`prefix`     | `string`           | Add prefix to all blocks. __Important:__ for root replace original prefix.
+Parameter    | Type     | Description
+-------------|----------|------------------------------
+`prefix`     | `string` | Add prefix to all blocks. __Important:__ for root replace original prefix.
+`scope`      | `string` | Replace root block with scope. And replace all blocks with elems.
+
+__Important:__ Augmentation flow is serial. Order: _prefix_, _scope_.
  
 
 ### convert(markdown) => Promise<Bemjson>

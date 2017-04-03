@@ -83,13 +83,58 @@ describe('Options', () => {
                 expect(heading).to.have.property('block', 'heading');
             });
 
+            it('should throw assert', () => {
+                expect(() =>
+                    Converter.convertSync('# hello', { augment: { prefix: {} } })
+                ).to.throw('options.prefix must be string');
+            });
+
             it('should replace prefix on `md-root`', () => {
                 const bjson = Converter.convertSync('# hello', { augment: { prefix: 'my-' } });
 
                 expect(bjson).to.have.property('block', 'my-root');
             });
         });
+
+        describe('scope', () => {
+            it('should replace root with scope', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { scope: 'my-root' } });
+
+                expect(bjson).to.have.property('block', 'my-root');
+            });
+
+            it('should replace block with elem', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { scope: 'my-root' } });
+                const heading = bjson.content;
+
+                expect(heading).to.have.property('elem', 'heading');
+                expect(heading).to.not.have.property('block');
+            });
+
+            it('should replace mods with elemMods', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { scope: 'my-root' } });
+                const heading = bjson.content;
+
+                expect(heading).to.have.property('elemMods');
+                expect(heading).to.not.have.property('mods');
+            });
+
+            it('should throw assert', () => {
+                expect(() =>
+                    Converter.convertSync('# hello', { augment: { scope: {} } })
+                ).to.throw('options.scope must be string');
+            });
+        });
+
+        describe('combinations', () => {
+            it('should replace prefixed blocks with elems', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { scope: 'scope', prefix: 'prefix-' } });
+                const heading = bjson.content;
+
+                expect(bjson).to.have.property('block', 'scope');
+                expect(heading).to.have.property('elem', 'prefix-heading');
+                expect(heading).to.not.have.property('block');
+            });
+        });
     });
 });
-
-// console.log(JSON.stringify(bjson, null, 4));
