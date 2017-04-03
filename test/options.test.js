@@ -48,6 +48,30 @@ describe('Options', () => {
         expect(bjsonString).to.startsWith('export default const hasName = ');
     });
 
+    it('should override `exportType` constructor option with `.stringify(text, { exportType })`', () => {
+        const md2bemjson = (new Converter({ exportType: ExportType.NO_EXPORT }));
+        const bjsonPromise = md2bemjson.stringify('hello', { exportType: ExportType.MODULES });
+
+        expect(bjsonPromise.then).to.be.a('function');
+        bjsonPromise.then(result => {
+            expect(result).to.startsWith('export default ');
+        });
+
+        return bjsonPromise;
+    });
+
+    it('should override `exportName` constructor option with `.stringify(text, { exportName })`', () => {
+        const md2bemjson = (new Converter({ exportType: ExportType.MODULES, exportName: 'noName' }));
+        const bjsonPromise = md2bemjson.stringify('hello', { exportName: 'hasName' });
+
+        expect(bjsonPromise.then).to.be.a('function');
+        bjsonPromise.then(result => {
+            expect(result).to.startsWith('export default const hasName = ');
+        });
+
+        return bjsonPromise;
+    });
+
     describe('augment', () => {
 
         it('should accept augment as params', () => {
