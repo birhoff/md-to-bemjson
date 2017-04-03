@@ -55,17 +55,17 @@ Yields:
 }
 ```
 
-Markdown converter to [bemjson][bemjson]
+[Markdown][markdown] converter to [bemjson][bemjson]
 -----------------------------
 
-Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert markdown to bemjson.
-Plugins divided into two groups: necessary(you can't disable this plugins) and optional.
+Module use [remark](https://github.com/wooorm/remark) with several plugins and custom compiler to convert [markdown][markdown] to [bemjson][bemjson].
+Plugins divided into two groups: [necessary](#necessary-plugins)(you can't disable this plugins) and [optional](#optional-plugins).
 
 ### Necessary plugins: 
 * [remark-inline-links](https://github.com/wooorm/remark-inline-links) - [bemjson][bemjson] don't support references.
 
 ### Optional plugins:
-* [remark-github](https://github.com/wooorm/remark-github) - Github integrations (issues, commits, mentions)
+* [remark-github](https://github.com/wooorm/remark-github) - [Github](github.com) integrations (issues, commits, mentions)
 
 ### Compiler
 * [remark-bemjson][remark-bemjson] - custom [bemjson][bemjson] compiler
