@@ -99,6 +99,7 @@ Parameter    | Type     | Description
 -------------|----------|------------------------------
 `prefix`     | `string` | Add prefix to all blocks. __Important:__ for root replace original prefix.
 `scope`      | `string` | Replace root block with scope. And replace all blocks with elems.
+`map`        | `Object` | Replace block names with provided in map. [Available blocks](https://github.com/birhoff/mdast-util-to-bemjson/blob/master/doc/rules.md).
 
 __Important:__ Augmentation flow is serial. Order: _prefix_, _scope_.
  
