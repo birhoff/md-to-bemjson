@@ -1,5 +1,5 @@
 # md-to-bemjson
-Converts `markdown` text to [bemjson][bemjson].
+Converts [markdown][markdown] text to [bemjson][bemjson].
 
 [![NPM Status][npm-img]][npm]
 [![Travis Status][test-img]][travis]
@@ -342,3 +342,4 @@ Code and documentation copyright 2017 YANDEX LLC. Code released under the [Mozil
 
 [bemjson]: https://en.bem.info/platform/bemjson/
 [remark-bemjson]: https://github.com/birhoff/remark-bemjson
+[markdown]: https://wikipedia.org/wiki/Markdown
