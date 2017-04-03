@@ -18,10 +18,11 @@ describe('test', () => {
         const bemjson = toBemjson('# Hello world');
 
         expect(bemjson).to.deep.equal({
-            block: 'documentation',
+            block: 'md-root',
             content: {
                 block: 'heading',
                 content: 'Hello world',
+                level: 1,
                 mods: {
                     level: 1
                 }

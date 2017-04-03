@@ -7,21 +7,11 @@ const toBemjson = require('../index');
 describe('Plugins', () => {
     it('should extract @mention from github', () => {
         const bjson = toBemjson.convertSync('@birhoff');
+        const link = bjson.content.content;
 
-        expect(bjson).to.deep.equal({
-            block: 'documentation',
-            content: {
-                block: 'paragraph',
-                content: {
-                    block: 'link',
-                    content: {
-                        block: 'strong',
-                        content: '@birhoff'
-                    },
-                    href: 'https://github.com/birhoff'
-                }
-            }
-        });
+        expect(link).to.have.property('block', 'link');
+        expect(link).to.have.property('content');
+        expect(link).to.have.property('href', 'https://github.com/birhoff');
     });
 
     it('should convert definitions to inline', () => {
