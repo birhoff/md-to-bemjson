@@ -150,6 +150,28 @@ describe('Options', () => {
             });
         });
 
+        describe('map', () => {
+            it('should replace md-root with custom-root', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { map: { 'md-root': 'custom-root' } } });
+
+                expect(bjson).to.have.property('block', 'custom-root');
+            });
+
+            it('should replace heading and don\'t replace root', () => {
+                const bjson = Converter.convertSync('# hello', { augment: { map: { heading: 'custom-heading' } } });
+                const heading = bjson.content;
+
+                expect(bjson).to.have.property('block', 'md-root');
+                expect(heading).to.have.property('block', 'custom-heading');
+            });
+
+            it('should throw assert', () => {
+                expect(() =>
+                    Converter.convertSync('# hello', { augment: { map: { 'md-root': {} } } })
+                ).to.throw('options.map: new name of ');
+            });
+        });
+
         describe('combinations', () => {
             it('should replace prefixed blocks with elems', () => {
                 const bjson = Converter.convertSync('# hello', { augment: { scope: 'scope', prefix: 'prefix-' } });
@@ -157,6 +179,21 @@ describe('Options', () => {
 
                 expect(bjson).to.have.property('block', 'scope');
                 expect(heading).to.have.property('elem', 'prefix-heading');
+                expect(heading).to.not.have.property('block');
+            });
+
+            it('should apply map->prefix->scope', () => {
+                const bjson = Converter.convertSync('# hello', {
+                    augment: {
+                        scope: 'scope',
+                        prefix: 'prefix-',
+                        map: { heading: 'custom-heading', 'md-root': 'custom-root' }
+                    }
+                });
+                const heading = bjson.content;
+
+                expect(bjson).to.have.property('block', 'scope');
+                expect(heading).to.have.property('elem', 'prefix-custom-heading');
                 expect(heading).to.not.have.property('block');
             });
         });
