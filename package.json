@@ -1,7 +1,7 @@
 {
   "name": "md-to-bemjson",
   "version": "0.4.1",
-  "description": "md 2 bemjson converter",
+  "description": "markdown to bemjson converter",
   "main": "index.js",
   "scripts": {
     "pretest": "npm run lint",
@@ -13,16 +13,21 @@
     "github-release": "conventional-github-releaser -p angular -r 0"
   },
   "engines": {
-    "node": ">= 6"
+    "node": ">= 4"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/birhoff/md-to-bemjson.git"
   },
   "keywords": [
+    "markdown",
+    "to",
     "bemjson",
     "md",
-    "converter"
+    "converter",
+    "parser",
+    "bem",
+    "json"
   ],
   "author": "Konstantin Gladkikh <birhoff@gmail.com>",
   "license": "MPL-2.0",
