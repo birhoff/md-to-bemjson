@@ -172,6 +172,17 @@ describe('Options', () => {
             });
         });
 
+        describe('html', () => {
+            it('should replace html with bemjson', () => {
+                const bjson = Converter.convertSync('<div class="my-block"/>', { augment: { html: {} } });
+                const html = bjson.content;
+                const customBlock = html.content;
+
+                expect(html).to.have.property('block', 'html');
+                expect(customBlock).to.have.property('block', 'my-block');
+            });
+        });
+
         describe('combinations', () => {
             it('should replace prefixed blocks with elems', () => {
                 const bjson = Converter.convertSync('# hello', { augment: { scope: 'scope', prefix: 'prefix-' } });

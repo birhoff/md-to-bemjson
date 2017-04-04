@@ -100,8 +100,10 @@ Parameter    | Type     | Description
 `prefix`     | _string_ | Add prefix to all blocks. __Important:__ for root replace original prefix.
 `scope`      | _string_ | Replace root block with scope. And replace all blocks with elems.
 `map`        | _Object_ | Replace block names with provided in map. [Available blocks](https://github.com/birhoff/mdast-util-to-bemjson/blob/master/doc/rules.md).
+`html`       | _Object_ | Options for converting html to bemjson with [html2bemjson](https://github.com/bem-contrib/html2bemjson).
 
 __Important:__ Augmentation flow is serial. Order: _map_, _prefix_, _scope_.
+__Important:__ Other augmentations does not affect html.
  
 
 ### convert(markdown) => Promise<Bemjson>
