@@ -40,7 +40,7 @@ const bjson = toBemjson('# Hello world');
 
 console.log(JSON.stringify(bjson, null, 4));
 ```
-Yields: 
+Yields:
 ```json
 {
     "block": "md-root",
@@ -61,7 +61,7 @@ Yields:
 Module use [remark][remark] with several plugins and custom compiler to convert [markdown][markdown] to [bemjson][bemjson].
 Plugins divided into two groups: [necessary](#necessary-plugins)(you can't disable this plugins) and [optional](#optional-plugins).
 
-### Necessary plugins: 
+### Necessary plugins:
 * [remark-inline-links](https://github.com/wooorm/remark-inline-links) - [bemjson][bemjson] don't support references.
 
 ### Optional plugins:
@@ -89,7 +89,7 @@ API
 #### Options
 Parameter    | Type                 | Description
 -------------|----------------------|------------------------------
-`github`     | _boolean_            | Enables [github][github] support with [remark][remark] plugin [remark-github](https://github.com/wooorm/remark-github). Default — `true`.
+`github`     | _Object_, _boolean_            | Enables [github][github] support with [remark][remark] plugin [remark-github](https://github.com/wooorm/remark-github). Default `false`.
 `exportType` | _enum<string>_       | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
 `exportName` | _string_             | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify [bemjson][bemjson] with exported given name.
 `augment`    | _Function_, _Object_ | Options for augmentation resulting [bemjson][bemjson] by every node. As function accepts bemNode and must return it.
@@ -104,10 +104,10 @@ Parameter    | Type     | Description
 
 __Important:__ Augmentation flow is serial. Order: _map_, _prefix_, _scope_.
 __Important:__ Other augmentations does not affect html.
- 
+
 
 ### convert(markdown) => Promise<Bemjson>
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -117,7 +117,7 @@ Asynchronously converts [markdown][markdown] to [bemjson][bemjson].
 ```js
 const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
- 
+
 md2Bemjson.convert('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)))
 ```
 Yields:
@@ -136,7 +136,7 @@ Yields:
 ```
 
 ### convertSync(markdown) => Bemjson
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -146,8 +146,8 @@ Synchronously converts [markdown][markdown] to [bemjson][bemjson].
 ```js
 const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
- 
-console.log(JSON.stringify(md2Bemjson.convertSync('# Hello world'), null, 4)); 
+
+console.log(JSON.stringify(md2Bemjson.convertSync('# Hello world'), null, 4));
 ```
 Yields:
 ```json
@@ -165,7 +165,7 @@ Yields:
 ```
 
 ### stringify(markdown \[, options\]) => Promise<String>
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -176,7 +176,7 @@ Asynchronously converts and stringify [markdown][markdown] to [bemjson][bemjson]
 ```js
 const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
- 
+
 md2Bemjson.stringify('# Hello world').then(content => console.log(content))
 ```
 Yields:
@@ -195,7 +195,7 @@ module.exports = {
 ```
 
 ### stringifySync(markdown \[, options\]) => String
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -206,7 +206,7 @@ Synchronously converts and stringify [markdown][markdown] to [bemjson][bemjson] 
 ```js
 const Converter = require('md-to-bemjson');
 const md2Bemjson = new Converter();
- 
+
 console.log(md2Bemjson.stringifySync('# Hello world'));
  ```
 Yields:
@@ -225,7 +225,7 @@ module.exports = {
 ```
 
 ### _static_ convert(markdown \[, options\]) => Promise<Bemjson>
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -235,7 +235,7 @@ Asynchronously converts [markdown][markdown] to [bemjson][bemjson].
 
 ```js
 const toBemjson = require('md-to-bemjson').convert;
- 
+
 toBemjson('# Hello world').then(bjson => console.log(JSON.stringify(bjson, null, 4)))
 ```
 Yields:
@@ -254,7 +254,7 @@ Yields:
 ```
 
 ### _static_ convertSync(markdown \[, options\]) => Bemjson
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -264,7 +264,7 @@ Synchronously converts [markdown][markdown] to [bemjson][bemjson].
 
 ```js
 const toBemjson = require('md-to-bemjson').convertSync;
- 
+
 console.log(JSON.stringify(toBemjson('# Hello world'), null, 4));
 ```
 Yields:
@@ -283,7 +283,7 @@ Yields:
 ```
 
 ### _static_ stringify(markdown \[, options\]) => Promise<String>
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text
@@ -312,7 +312,7 @@ module.exports = {
 ```
 
 ### _static_ stringifySync(markdown \[, options\]) => String
- 
+
 Parameter | Type      | Description
 ----------|-----------|------------------------------
 `markdown`| _string_  | Markdown text

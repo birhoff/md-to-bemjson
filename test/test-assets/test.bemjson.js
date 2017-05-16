@@ -111,14 +111,7 @@ module.exports = {
         },
         {
             block: 'paragraph',
-            content: {
-                href: 'https://github.com/birhoff',
-                block: 'link',
-                content: {
-                    block: 'strong',
-                    content: '@birhoff'
-                }
-            }
+            content: '@birhoff'
         }
     ]
 };
