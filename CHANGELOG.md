@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://github.com/birhoff/md-to-bemjson/compare/v0.5.0...v0.6.0) (2017-05-16)
+
+
+### Features
+
+* **options:** Github disabled by default and enable passing options ([#24](https://github.com/birhoff/md-to-bemjson/issues/24)) ([a9c6b2f](https://github.com/birhoff/md-to-bemjson/commit/a9c6b2f))
+
+
+
 <a name="0.5.0"></a>
 # [0.5.0](https://github.com/birhoff/md-to-bemjson/compare/v0.4.2...v0.5.0) (2017-04-04)
 
