@@ -20,6 +20,13 @@ describe('Options', () => {
         expect(content).to.be.a('string');
     });
 
+    it('should not add github support with no `github` option', () => {
+        const bjson = Converter.convertSync('@birhoff');
+        const content = bjson.content.content;
+
+        expect(content).to.be.a('string');
+    });
+
     it('should extract `exportType` option from constructor params', () => {
         const md2bemjson = (new Converter({ exportType: ExportType.MODULES }));
         const bjsonString = md2bemjson.stringifySync('hello');
