@@ -48,7 +48,7 @@
     "bluebird": "^3.5.0",
     "html2bemjson": "^1.9.0",
     "lodash.defaultsdeep": "^4.6.0",
-    "remark": "^7.0.0",
+    "remark": "^8.0.0",
     "remark-bemjson": "0.3.0",
     "remark-github": "^7.0.0",
     "remark-inline-links": "^3.0.3"
