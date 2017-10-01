@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.1"></a>
+## [0.7.1](https://github.com/birhoff/md-to-bemjson/compare/v0.7.0...v0.7.1) (2017-10-01)
+
+
+### Bug Fixes
+
+* **package:** update remark-bemjson to version 0.3.1 ([#34](https://github.com/birhoff/md-to-bemjson/issues/34)) ([c552990](https://github.com/birhoff/md-to-bemjson/commit/c552990))
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://github.com/birhoff/md-to-bemjson/compare/v0.6.1...v0.7.0) (2017-10-01)
 
