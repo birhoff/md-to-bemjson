@@ -1,6 +1,6 @@
 {
   "name": "md-to-bemjson",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "markdown to bemjson converter",
   "main": "index.js",
   "scripts": {
