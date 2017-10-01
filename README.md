@@ -93,6 +93,7 @@ Parameter    | Type                 | Description
 `exportType` | _enum<string>_       | [remark-bemjson][remark-bemjson] option. Exports to certain type with `.stringify`. Supported [exports](https://github.com/birhoff/remark-bemjson#string-exporttype---determinate-how-to-export-bemjson-default-commonjs).
 `exportName` | _string_             | [remark-bemjson][remark-bemjson] option. Used with `exportType=(modules, umd, YModules)` stringify [bemjson][bemjson] with exported given name.
 `augment`    | _Function_, _Object_ | Options for augmentation resulting [bemjson][bemjson] by every node. As function accepts bemNode and must return it.
+`plugins`    | _Array<Object>_      | Options for additional [plugins][remark-plugins] to be included. Plugin format: `{ plugin: Function, options: Object }`
 
 #### Options.augment
 Parameter    | Type     | Description
@@ -351,3 +352,4 @@ Code and documentation copyright 2017 YANDEX LLC. Code released under the [Mozil
 [markdown]: https://wikipedia.org/wiki/Markdown
 [github]: https://github.com/
 [remark]: https://github.com/wooorm/remark
+[remark-plugins]: https://github.com/wooorm/remark/blob/master/doc/plugins.md

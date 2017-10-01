@@ -1,4 +1,10 @@
 'use strict';
+
+const describe = require('mocha').describe;
+const it = require('mocha').it;
+
+const sinon = require('sinon');
+
 const ExportType = require('remark-bemjson').ExportType;
 
 const Converter = require('../index');
@@ -213,6 +219,20 @@ describe('Options', () => {
                 expect(bjson).to.have.property('block', 'scope');
                 expect(heading).to.have.property('elem', 'prefix-custom-heading');
                 expect(heading).to.not.have.property('block');
+            });
+        });
+
+        describe('plugins', () => {
+            it('should add plugin to remark flow', () => {
+                const spy = sinon.spy();
+
+                Converter.convertSync('# hello', {
+                    plugins: [
+                        { plugin: spy, options: { a: 1 } }
+                    ]
+                });
+
+                expect(spy.calledWith({ a: 1 }), 'Plugins doesn\'t included').to.be.ok;
             });
         });
     });
