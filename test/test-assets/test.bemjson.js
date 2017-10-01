@@ -35,7 +35,7 @@ module.exports = {
         },
         {
             ordered: false,
-            loose: true,
+            loose: false,
             block: 'list',
             content: [
                 {
@@ -48,7 +48,7 @@ module.exports = {
                     }
                 },
                 {
-                    loose: true,
+                    loose: false,
                     checked: null,
                     block: 'list-item',
                     content: {
